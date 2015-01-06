@@ -1,0 +1,77 @@
+{% extends "blog_base.html" %}
+{% load staticfiles %}
+{% load filters %}
+{% load django_markdown %}
+
+{% block blogcontent %}
+
+<div class="content-wrapper">
+
+    {% for object in object_list %}
+        <article class="article">
+            <h3 class="article-title">
+                <a href="{% url "blog_detail" slug=object.slug %}">{{ object.title }}</a>
+            </h3>
+
+            <div class="article-meta">
+                <a class="avatar avatar-30" size="30" name="true" title="{{ object.author.name }}" href="javascript:;">
+                    <span class="avatar-face"><img src="{{ object.author.basicinfo.avatar.url }}" alt="{{ object.author.name }}"></span>
+                    <span class="avatar-name">{{ object.author.name }}</span>
+                </a>
+                <span class="published">{{ object.create_time }}</span>
+                 |
+                <a class="category-name" href="https://worktile.com/blog/story">{{ object.category }}</a>
+            </div>
+            <div class="article-summary article-markdown">
+                <p><img src="{{ object.image.url }}" alt="替代文字"><br>{{ object.content|cut|markdown }}</p>
+
+            </div>
+            <div class="article-footer">
+                <a href="{% url "blog_detail" slug=object.slug %}">阅读全文<i class="icon-double-angle-right"></i></a>
+            </div>
+        </article>
+    {% endfor %}
+
+    
+
+    <ul class="pagination">
+        <li class="disabled">
+            <a href="javascript:;" class="paginator-previous">上一页</a>
+        </li>
+        <li class="active">
+            <a href="https://worktile.com/blog?page=1">1</a>
+        </li>
+        <li class="paginator-page">
+            <a href="https://worktile.com/blog?page=2">2</a>
+        </li>
+        <li class="paginator-page">
+            <a href="https://worktile.com/blog?page=3">3</a>
+        </li>
+        <li class="paginator-page">
+            <a href="https://worktile.com/blog?page=4">4</a>
+        </li>
+        <li class="paginator-page">
+            <a href="https://worktile.com/blog?page=5">5</a>
+        </li>
+        <li class="paginator-page">
+            <a href="https://worktile.com/blog?page=6">6</a>
+        </li>
+        <li class="paginator-page">
+            <a href="https://worktile.com/blog?page=7">7</a>
+        </li>
+        <li class="paginator-page">
+            <a href="https://worktile.com/blog?page=8">8</a>
+        </li>
+        <li class="paginator-page">
+            <a href="https://worktile.com/blog?page=9">9</a>
+        </li>
+        <li class="paginator-page">
+            <a href="https://worktile.com/blog?page=10">10</a>
+        </li>
+        <li class="">
+            <a href="https://worktile.com/blog?page=2" class="paginator-next">下一页</a>
+        </li>
+    </ul>
+    </div>
+
+{% endblock %}

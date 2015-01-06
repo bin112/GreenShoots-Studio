@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<li>
+    <a href="{% url 'index' %}">首页</a>
+</li>
+<li>
+    <a href="{% url 'work' %}">作品展示</a>
+</li>
+<li class="active">
+    <a href="{% url 'blog' %}">博客</a>
+</li>
+<li>
+    <a href="{% url 'team' %}">关于我们</a>
+</li>
+<li>
+    <a href="{% url 'contact' %}">联系我们</a>
+</li>
+{% endblock %}
+
+{% block content %}
+
+<div id="wrap-all"><div id="main" class="inner">
+<div class="page_navbar">
+    <div class="page-navbar-warp">
+        <div class="title">
+            <h3>
+                <a href="#">
+                    <i class="icon-rss mr_10"></i>官方博客
+                </a>
+            </h3>
+        </div>
+        <div class="main">
+            <div class="toolbar_panel pull-right">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-panel blog-panel">
+    <div class="content-container">
+        <div class="content col-xs-12 col-sm-9">
+            {% block blogcontent %}
+            {% endblock %}
+        </div>
+        <div class="visible-xs">&nbsp;</div>
+<div class="sidebar col-xs-12 col-sm-3">
+    <div class="sidebar-inner">
+        <div class="sidebar-widget">
+            <h4>分类</h4>
+            <ul>
+                {% for object in categories %}
+                <li>
+                <a href="{% url "category_blogs" slug=object.slug %}">
+                    {{ object.name }}
+                </a>
+                </li>
+                {% endfor %}
+<!--                 
+                <li>
+                <a href="https://worktile.com/blog/features">
+                    功能日记
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/skills">
+                    使用技巧
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/practices">
+                    最佳实践
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/events">
+                    线下活动
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/teamwork">
+                    协同之道
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/press">
+                    媒体报道
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/story">
+                    用户故事
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/yctech">
+                    易成科技
+                </a>
+                </li> -->
+
+            </ul>
+        </div>
+
+        
+    </div>
+</div>
+
+    </div>
+
+{% endblock %}

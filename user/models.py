@@ -26,7 +26,7 @@ class User(Basemodel):
 
 
 class Basicinfo(Basemodel):
-    user = models.ForeignKey(User, verbose_name=u'用户')
+    user = models.OneToOneField(User, verbose_name=u'用户')
     nickname = models.CharField(max_length=30, verbose_name=u'昵称')
     avatar = models.ImageField(upload_to='user/basicinfo', verbose_name=u'头像')
     sex = models.CharField(max_length=1, verbose_name=u'性别', choices= (
@@ -34,11 +34,11 @@ class Basicinfo(Basemodel):
         ('F', u'女')
     ), blank=True)
     email = models.EmailField(verbose_name=u'邮箱', blank=True)
-    qq = models.CharField(max_length=15, verbose_name=u'qq账号')
-    signature = models.CharField(max_length=300, verbose_name=u'个性签名')
+    qq = models.CharField(max_length=15, verbose_name=u'qq账号', blank=True)
+    signature = models.CharField(max_length=300, verbose_name=u'个性签名', blank=True)
 
     def __unicode__(self):
-        return self.user.name
+        return self.nickname
 
     class Meta:
         verbose_name = u'用户资料'

@@ -40,6 +40,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'blog',
+    'user',
+    'django_markdown'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,9 +74,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-cn'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -89,3 +93,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
    os.path.join(BASE_DIR, "static/"),
 )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/') + '/'
+MEDIA_URL = '/media/'
