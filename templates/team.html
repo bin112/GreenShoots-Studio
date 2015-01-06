@@ -1,4 +1,24 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<li>
+    <a href="{% url 'index' %}">首页</a>
+</li>
+<li>
+    <a href="{% url 'work' %}">作品展示</a>
+</li>
+<li >
+    <a href="{% url 'blog' %}">博客</a>
+</li>
+<li class="active">
+    <a href="{% url 'team' %}">关于我们</a>
+</li>
+<li>
+    <a href="{% url 'contact' %}">联系我们</a>
+</li>
+{% endblock %}
+
 {% block content %}
 
 <h1>关于我们</h1>

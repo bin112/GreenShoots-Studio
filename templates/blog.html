@@ -1,6 +1,361 @@
 {% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<li>
+    <a href="{% url 'index' %}">首页</a>
+</li>
+<li>
+    <a href="{% url 'work' %}">作品展示</a>
+</li>
+<li class="active">
+    <a href="{% url 'blog' %}">博客</a>
+</li>
+<li>
+    <a href="{% url 'team' %}">关于我们</a>
+</li>
+<li>
+    <a href="{% url 'contact' %}">联系我们</a>
+</li>
+{% endblock %}
+
 {% block content %}
 
-<h1>博客</h1>
+<div id="wrap-all"><div id="main" class="inner">
+<div class="page_navbar">
+    <div class="page-navbar-warp">
+        <div class="title">
+            <h3>
+                <a href="./blog_files/blog.html">
+                    <i class="icon-rss mr_10"></i>官方博客
+                </a>
+            </h3>
+        </div>
+        <div class="main">
+            <div class="toolbar_panel pull-right">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-panel blog-panel">
+    <div class="content-container">
+        <div class="content col-xs-12 col-sm-9">
+            <div class="content-wrapper">
+                
+                    
+                    <article class="article">
+                        <h3 class="article-title">
+                            <a href="https://worktile.com/blog/story/massage-with-worktile">这年头，做大保健的都用Worktile</a>
+
+                            <div class="article-comments-num">
+                            <span><a href="https://worktile.com/blog/story/massage-with-worktile">1</a></span>
+                            <span class="arrow"></span>
+                            </div>
+                        </h3>
+
+                        <div class="article-meta">
+                            <a class="avatar avatar-30" size="30" name="true" title="op小泽马" href="javascript:;">
+                                <span class="avatar-face"><img src="{% static "images/6a50207f-3c6e-45a5-be1d-824123f81266.jpg" %}" alt="op小泽马"></span>
+                                <span class="avatar-name">op小泽马</span>
+                            </a>
+                            <span class="published">2015-01-05 11:45</span>
+                             |
+                            <a class="category-name" href="https://worktile.com/blog/story">用户故事</a>
+                        </div>
+                        <div class="article-summary article-markdown">
+                            <p><img src="{% static "images/5382180b-e58a-4e27-a616-7cc9cf05f5bd.jpg" %}" alt="替代文字"><br>在如今快节奏的都市生活中，每10个人中，平均有8个人患有不同程度的颈椎病、肩周炎、腰肌劳损等症状。长期加班，工作疲劳，身体的亚健康久而久之就会变为疾病。而专业的推拿调理可以有效放松身体，缓解疼痛，恢复肌肉活力。</p>
+
+                        </div>
+                        <div class="article-footer">
+                            <a href="https://worktile.com/blog/story/massage-with-worktile">阅读全文<i class="icon-double-angle-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="article">
+                        <h3 class="article-title">
+                            <a href="https://worktile.com/blog/practices/tools-as-a-software">Worktile + FIR.im：工具即服务</a>
+
+                            <div class="article-comments-num">
+                            <span><a href="https://worktile.com/blog/practices/tools-as-a-software">2</a></span>
+                            <span class="arrow"></span>
+                            </div>
+                        </h3>
+
+                        <div class="article-meta">
+                            <a class="avatar avatar-30" size="30" name="true" title="op小泽马" href="javascript:;">
+                                <span class="avatar-face"><img src="{% static "images/6a50207f-3c6e-45a5-be1d-824123f81266.jpg" %}" alt="op小泽马"></span>
+                                <span class="avatar-name">op小泽马</span>
+                            </a>
+                            <span class="published">2014-12-31 11:31</span>
+                             |
+                            <a class="category-name" href="https://worktile.com/blog/practices">最佳实践</a>
+                        </div>
+                        <div class="article-summary article-markdown">
+                            <p><img src="{% static "images/83bc152f-a791-4ce9-aa2d-bd3e484b2132.jpg" %}" alt="替代文字"><br>效率，对Worktile来讲是永恒的话题。Worktile 的本质是一款效率类工具，我们也会经常分享一些<a href="https://worktile.com/blog/practices/toolbox-for-tech-startup">效率类工具</a>给大家，在 Worktile 团队内部更是对提高效率的工具喜爱有加，我们喜欢尝试各种有趣的工具来降低我们的工作成本。</p>
+
+                        </div>
+                        <div class="article-footer">
+                            <a href="https://worktile.com/blog/practices/tools-as-a-software">阅读全文<i class="icon-double-angle-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="article">
+                        <h3 class="article-title">
+                            <a href="https://worktile.com/blog/story/summary-of-2014-user-story">【图说】Worktile的2014——用户故事篇</a>
+
+                            <div class="article-comments-num">
+                            <span><a href="https://worktile.com/blog/story/summary-of-2014-user-story">5</a></span>
+                            <span class="arrow"></span>
+                            </div>
+                        </h3>
+
+                        <div class="article-meta">
+                            <a class="avatar avatar-30" size="30" name="true" title="赵祥翔" href="javascript:;">
+                                <span class="avatar-face"><img src="{% static "images/4f2506de-7eba-4197-bea4-2dcf7204a41e.jpg" %}" alt="赵祥翔"></span>
+                                <span class="avatar-name">赵祥翔</span>
+                            </a>
+                            <span class="published">2014-12-30 16:09</span>
+                             |
+                            <a class="category-name" href="https://worktile.com/blog/story">用户故事</a>
+                        </div>
+                        <div class="article-summary article-markdown">
+                            <p><img src="{% static "images/abe6ed36-3c20-4400-b824-a2294ff148bd.png" alt="2014-of-worktile-us.png" %}"></p>
+
+                        </div>
+                        <div class="article-footer">
+                            <a href="https://worktile.com/blog/story/summary-of-2014-user-story">阅读全文<i class="icon-double-angle-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="article">
+                        <h3 class="article-title">
+                            <a href="https://worktile.com/blog/features/android-release-3.3.0">Worktile Android v3.3.0：全新的工作台</a>
+
+                            <div class="article-comments-num">
+                            <span><a href="https://worktile.com/blog/features/android-release-3.3.0">4</a></span>
+                            <span class="arrow"></span>
+                            </div>
+                        </h3>
+
+                        <div class="article-meta">
+                            <a class="avatar avatar-30" size="30" name="true" title="op小泽马" href="javascript:;">
+                                <span class="avatar-face"><img src="{% static "images/6a50207f-3c6e-45a5-be1d-824123f81266.jpg" %}" alt="op小泽马"></span>
+                                <span class="avatar-name">op小泽马</span>
+                            </a>
+                            <span class="published">2014-12-30 13:19</span>
+                             |
+                            <a class="category-name" href="https://worktile.com/blog/features">功能日记</a>
+                        </div>
+                        <div class="article-summary article-markdown">
+                            <p><img src="{% static "images/d01d0263-69be-464a-8c3a-d03c899e38d6.jpg" %}" alt="替代文字"><br>圣诞大礼刚送完，新年大礼又迎来，这一次我们带来了Worktile Android v3.3.0</p>
+
+                        </div>
+                        <div class="article-footer">
+                            <a href="https://worktile.com/blog/features/android-release-3.3.0">阅读全文<i class="icon-double-angle-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="article">
+                        <h3 class="article-title">
+                            <a href="https://worktile.com/blog/practices/summary-of-2014-best-practice">【图说】Worktile的2014——最佳实践篇</a>
+
+                            <div class="article-comments-num">
+                            <span><a href="https://worktile.com/blog/practices/summary-of-2014-best-practice">1</a></span>
+                            <span class="arrow"></span>
+                            </div>
+                        </h3>
+
+                        <div class="article-meta">
+                            <a class="avatar avatar-30" size="30" name="true" title="赵祥翔" href="javascript:;">
+                                <span class="avatar-face"><img src="{% static "images/4f2506de-7eba-4197-bea4-2dcf7204a41e.jpg" %}" alt="赵祥翔"></span>
+                                <span class="avatar-name">赵祥翔</span>
+                            </a>
+                            <span class="published">2014-12-29 15:16</span>
+                             |
+                            <a class="category-name" href="https://worktile.com/blog/practices">最佳实践</a>
+                        </div>
+                        <div class="article-summary article-markdown">
+                            <p><img src="{% static "images/5cf07e62-95d2-4291-9d4f-4aa4fe8838af.png" alt="2014-of-worktile-bp-blog.png" %}"></p>
+
+                        </div>
+                        <div class="article-footer">
+                            <a href="https://worktile.com/blog/practices/summary-of-2014-best-practice">阅读全文<i class="icon-double-angle-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="article">
+                        <h3 class="article-title">
+                            <a href="https://worktile.com/blog/features/summary-of-2014-features">【图说】Worktile的2014——功能日记篇</a>
+
+                            <div class="article-comments-num">
+                            <span><a href="https://worktile.com/blog/features/summary-of-2014-features">21</a></span>
+                            <span class="arrow"></span>
+                            </div>
+                        </h3>
+
+                        <div class="article-meta">
+                            <a class="avatar avatar-30" size="30" name="true" title="赵祥翔" href="javascript:;">
+                                <span class="avatar-face"><img src="{% static "images/4f2506de-7eba-4197-bea4-2dcf7204a41e.jpg" %}" alt="赵祥翔"></span>
+                                <span class="avatar-name">赵祥翔</span>
+                            </a>
+                            <span class="published">2014-12-26 16:51</span>
+                             |
+                            <a class="category-name" href="https://worktile.com/blog/features">功能日记</a>
+                        </div>
+                        <div class="article-summary article-markdown">
+                            <p><img src="{% static "images/f1a13df4-a184-432d-8895-26fbd87982e3.png" alt="2014-of-worktile-cover.png" %}"></p>
+<p>即将告别这一年，店小二也有颇多的不舍。对于时光的感慨，总会在看到陌陌上00后发来的“约吗？”时，深刻地体会到。所以，这时候难免会回想起过去一年的点滴，感谢我们设计师@莉莉 的演绎，让这些印记得以如此生动地展现出来。我们会分三篇——【功能日记篇】【最佳实践篇】和【用户故事篇】来和大家一起回顾Worktile的2014，蜗牛的2014，我们的2014……</p>
+
+                        </div>
+                        <div class="article-footer">
+                            <a href="https://worktile.com/blog/features/summary-of-2014-features">阅读全文<i class="icon-double-angle-right"></i></a>
+                        </div>
+                    
+                    <article class="article">
+                        <h3 class="article-title">
+                            <a href="https://worktile.com/blog/story/work-with-personal-project">没有团队，我就把个人项目玩到极致</a>
+
+                            <div class="article-comments-num">
+                            <span><a href="https://worktile.com/blog/story/work-with-personal-project">3</a></span>
+                            <span class="arrow"></span>
+                            </div>
+                        </h3>
+
+                        <div class="article-meta">
+                            <a class="avatar avatar-30" size="30" name="true" title="赵祥翔" href="javascript:;">
+                                <span class="avatar-face"><img src="{% static "images/4f2506de-7eba-4197-bea4-2dcf7204a41e.jpg" %}" alt="赵祥翔"></span>
+                                <span class="avatar-name">赵祥翔</span>
+                            </a>
+                            <span class="published">2014-12-26 15:00</span>
+                             |
+                            <a class="category-name" href="https://worktile.com/blog/story">用户故事</a>
+                        </div>
+                        <div class="article-summary article-markdown">
+                            <p><img src="{% static "images/df732b82-b01d-4e19-a4a2-d158d606195f.jpg" %}" alt="赵亦"><br>我做的是文秘工作，事情多而杂，但是又迫切地需要一个工具来帮助我打理各种事情。研究了一段时间之后，我发现Worktile其实有着很大的潜力可以挖掘。但是因为我本身用于个人管理，所以也没有系统化地构建项目的必要，更多的只是按照自己的需要来创建。坦白来说，我觉得这有些“委屈”了它，因为作为个人管理可能也就发挥了Worktile 20%的潜力，所以我决定要把个人项目玩到极致！</p>
+
+                        </div>
+                        <div class="article-footer">
+                            <a href="https://worktile.com/blog/story/work-with-personal-project">阅读全文<i class="icon-double-angle-right"></i></a>
+                        </div>
+                    </article>
+                    
+                    <article class="article">
+                        <h3 class="article-title">
+                            <a href="https://worktile.com/blog/news/one-day-in-worktile">图说：One Day in Worktile</a>
+
+                            <div class="article-comments-num">
+                            <span><a href="https://worktile.com/blog/news/one-day-in-worktile">4</a></span>
+                            <span class="arrow"></span>
+                            </div>
+                        </h3>
+
+                        <div class="article-meta">
+                            <a class="avatar avatar-30" size="30" name="true" title="赵祥翔" href="javascript:;">
+                                <span class="avatar-face"><img src="{% static "images/4f2506de-7eba-4197-bea4-2dcf7204a41e.jpg" %}" alt="赵祥翔"></span>
+                                <span class="avatar-name">赵祥翔</span>
+                            </a>
+                            <span class="published">2014-12-23 18:28</span>
+                             |
+                            <a class="category-name" href="https://worktile.com/blog/news">新闻速递</a>
+                        </div>
+                        <div class="article-summary article-markdown">
+                            <p><img src="{% static "images/e27976eb-0fa4-450e-a1de-cc381517d10d.jpg" %}"  alt="1"></p>
+<p>长久以来，大家都对【Worktile团队自己是怎么工作的】这个话题比较感兴趣，那么，作为专注于提高协作效率，同时又身为创业者的团队，我们平时工作中的一天又是怎样的呢？店小二今天就带着大家一起看看揭秘大片——《图说：One Day in Worktile》！一起来看看我们是如何<strong>Work with Worktile, Live with Worktile</strong>。</p>
+
+                        </div>
+                        <div class="article-footer">
+                            <a href="https://worktile.com/blog/news/one-day-in-worktile">阅读全文<i class="icon-double-angle-right"></i></a>
+                        </div>
+                    </article>
+                    
+
+                <ul class="pagination"><li class="disabled"><a href="javascript:;" class="paginator-previous">上一页</a></li><li class="active"><a href="https://worktile.com/blog?page=1">1</a></li><li class="paginator-page"><a href="https://worktile.com/blog?page=2">2</a></li><li class="paginator-page"><a href="https://worktile.com/blog?page=3">3</a></li><li class="paginator-page"><a href="https://worktile.com/blog?page=4">4</a></li><li class="paginator-page"><a href="https://worktile.com/blog?page=5">5</a></li><li class="paginator-page"><a href="https://worktile.com/blog?page=6">6</a></li><li class="paginator-page"><a href="https://worktile.com/blog?page=7">7</a></li><li class="paginator-page"><a href="https://worktile.com/blog?page=8">8</a></li><li class="paginator-page"><a href="https://worktile.com/blog?page=9">9</a></li><li class="paginator-page"><a href="https://worktile.com/blog?page=10">10</a></li><li class=""><a href="https://worktile.com/blog?page=2" class="paginator-next">下一页</a></li></ul>
+            </div>
+        </div>
+        <div class="visible-xs">&nbsp;</div>
+<div class="sidebar col-xs-12 col-sm-3">
+    <div class="sidebar-inner">
+        <div class="sidebar-widget">
+            <h4>分类</h4>
+            <ul>
+                
+                <li>
+                <a href="https://worktile.com/blog/news">
+                    新闻速递
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/features">
+                    功能日记
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/skills">
+                    使用技巧
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/practices">
+                    最佳实践
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/events">
+                    线下活动
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/teamwork">
+                    协同之道
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/press">
+                    媒体报道
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/story">
+                    用户故事
+                </a>
+                </li>
+                
+                <li>
+                <a href="https://worktile.com/blog/yctech">
+                    易成科技
+                </a>
+                </li>
+                
+            </ul>
+        </div>
+
+        <div class="sidebar-widget">
+            <h4>关注微信</h4>
+            <div class="contact-code">
+                <img src="{% static "images/contact-code.png" %}">
+            </div>
+        </div>
+
+        <div>
+            <a href="https://worktile.com/help">
+                <img width="100%" src="{% static "images/slidebanner_guide.png" %}">
+            </a>
+        </div>
+
+        
+    </div>
+</div>
+
+    </div>
 
 {% endblock %}

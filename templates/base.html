@@ -9,6 +9,7 @@
 <title>绿芽工作室</title>
 <link rel="stylesheet" type="text/css" href="{% static "css/base_common.css" %}">
 <link rel="stylesheet" type="text/css" href="{% static "css/base_outer.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/base_club.css" %}">
 
 <meta name="author" content="tongqi">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -46,21 +47,8 @@
             <div class="collapse navbar-collapse navbar-header-collapse">
 
                 <ul id="header_menu" class="nav navbar-nav navbar-right ng-scope">
-                    <li class="active">
-                        <a href="{% url 'index' %}">首页</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'work' %}">作品展示</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'blog' %}">博客</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'team' %}">关于我们</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'contact' %}">联系我们</a>
-                    </li>
+                    {% block header %}
+                    {% endblock %}
                 </ul>
 
             </div>
