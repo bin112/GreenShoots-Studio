@@ -55,63 +55,24 @@
                 {% for object in categories %}
                 <li>
                 <a href="{% url "category_blogs" slug=object.slug %}">
-                    {{ object.name }}
+                    {{ object.name }}({{ object.count }})
                 </a>
                 </li>
                 {% endfor %}
-<!--                 
-                <li>
-                <a href="https://worktile.com/blog/features">
-                    功能日记
-                </a>
-                </li>
-                
-                <li>
-                <a href="https://worktile.com/blog/skills">
-                    使用技巧
-                </a>
-                </li>
-                
-                <li>
-                <a href="https://worktile.com/blog/practices">
-                    最佳实践
-                </a>
-                </li>
-                
-                <li>
-                <a href="https://worktile.com/blog/events">
-                    线下活动
-                </a>
-                </li>
-                
-                <li>
-                <a href="https://worktile.com/blog/teamwork">
-                    协同之道
-                </a>
-                </li>
-                
-                <li>
-                <a href="https://worktile.com/blog/press">
-                    媒体报道
-                </a>
-                </li>
-                
-                <li>
-                <a href="https://worktile.com/blog/story">
-                    用户故事
-                </a>
-                </li>
-                
-                <li>
-                <a href="https://worktile.com/blog/yctech">
-                    易成科技
-                </a>
-                </li> -->
-
             </ul>
         </div>
-
-        
+        <div class="sidebar-widget">
+            <h4>标签</h4>
+            <ul>
+                {% for object in tags %}
+                <li>
+                <a href="{% url "tag_blogs" pk=object.pk %}">
+                    {{ object.name }}({{ object.count }})
+                </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 </div>
 
