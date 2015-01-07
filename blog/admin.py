@@ -15,6 +15,10 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ("title", "create_time")
+    readonly_fields=('click_count',)
+
+class TagAdmin(admin.ModelAdmin):
+    list_display = ("name", "slug", "count")
 
 class TagAdmin(admin.ModelAdmin):
     list_display = ("name", "slug", "count")
