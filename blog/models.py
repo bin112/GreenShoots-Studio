@@ -66,6 +66,10 @@ class Blog(Basemodel):
     comment_count = models.IntegerField(default=0, editable=False, verbose_name=u'评论数')
     objects = BlogQuerySet.as_manager()
 
+    def click(self):
+        self.click_count += 1
+        self.save()
+
     def get_absolute_url(self):
         return reverse("blog_detail", kwargs={"slug": self.slug})
 
@@ -85,8 +89,8 @@ def handle_in_batches(instances, method):
 
 def blog_pre_save(sender, **kwargs):
     try:
-        cate = Category.objects.get(id=kwargs.get('instance').id)
-    except Category.DoesNotExist:
+        blog = Blog.objects.get(id=kwargs.get('instance').id)
+    except Blog.DoesNotExist:
         kwargs.get('instance').category.incr()
     else:
         pass
