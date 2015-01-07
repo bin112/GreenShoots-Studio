@@ -8,8 +8,10 @@ __author__ = 'chengbin.wang'
 from django.contrib import admin
 from . import models
 
+
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ("name", "slug", "count")
+
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ("title", "create_time")
