@@ -13,6 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class BlogAdmin(admin.ModelAdmin):
     list_display = ("title", "create_time")
+    readonly_fields=('click_count',)
 
 admin.site.register(models.Blog, BlogAdmin)
 admin.site.register(models.Category, CategoryAdmin)

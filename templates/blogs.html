@@ -20,7 +20,9 @@
                 </a>
                 <span class="published">{{ object.create_time }}</span>
                  |
-                <a class="category-name" href="https://worktile.com/blog/story">{{ object.category }}</a>
+                <a class="category-name" href="{% url "category_blogs" slug=object.category.slug %}">{{ object.category.name }}</a>
+                |
+                <span>{{ object.click_count }}次阅读</span>
             </div>
             <div class="article-summary article-markdown">
                 <p>
@@ -36,7 +38,7 @@
             </div>
         </article>
     {% endfor %}
-        
+
     <ul class="pagination">
         {% if page_obj.has_previous %}
             <li >

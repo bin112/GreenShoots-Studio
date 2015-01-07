@@ -35,3 +35,9 @@ class BlogDetail(ExtraContext, generic.DetailView):
     extra_context = {"categories": models.Category.objects.all()}
     model = models.Blog
     template_name = "post.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(BlogDetail, self).get_context_data(**kwargs)
+        self.object.click_count += 1
+        self.object.save()
+        return context
