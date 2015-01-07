@@ -20,6 +20,14 @@ class Base(Basemodel):
     def __unicode__(self):
         return self.name
 
+    def incr(self, num=1):
+        self.count += num
+        self.save()
+
+    def decr(self, num=1):
+        self.count += num
+        self.save()
+
     class Meta:
         abstract = True
 
@@ -70,16 +78,33 @@ class Blog(Basemodel):
         verbose_name_plural = u'博客'
 
 
+def handle_in_batches(instances, method):
+    for item in instances:
+        getattr(item, method)()
+
+
 def blog_pre_save(sender, **kwargs):
-    pass
+    try:
+        cate = Category.objects.get(id=kwargs.get('instance').id)
+    except Category.DoesNotExist:
+        kwargs.get('instance').category.incr()
+    else:
+        pass
 
 
 def blog_pre_delete(sender, **kwargs):
-    pass
+    ins = kwargs.get('instance')
+    ins.category.decr()
+    handle_in_batches(ins.tags.all(), 'decr')
 
 
 def tags_pre_save(sender, **kwargs):
-    pass
+    if kwargs.get('action') == 'pre_clear':
+        handle_in_batches(kwargs.get('instance').tags.all(), 'decr')
+    elif kwargs.get('action') == 'post_remove':
+        handle_in_batches(Tag.objects.filter(id__in=kwargs.get('pk_set')), 'decr')
+    elif kwargs.get('action') == 'post_add':
+        handle_in_batches(Tag.objects.filter(id__in=kwargs.get('pk_set')), 'incr')
 
 
 pre_save.connect(blog_pre_save, sender=Blog)

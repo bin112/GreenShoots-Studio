@@ -53,6 +53,7 @@ docs/_build/
 # PyBuilder
 target/
 
+*.sqlite3
 *.DS_Store
 
 media/
