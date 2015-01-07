@@ -23,6 +23,9 @@ class TagAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ("name", "slug", "count")
 
+class TagAdmin(admin.ModelAdmin):
+    list_display = ("name", "slug", "count")
+
 admin.site.register(models.Blog, BlogAdmin)
 admin.site.register(models.Category, CategoryAdmin)
 admin.site.register(models.Tag, TagAdmin)
