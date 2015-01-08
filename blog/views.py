@@ -7,8 +7,9 @@ __author__ = 'chengbin.wang'
 
 from django.views import generic
 from . import models
+from django.db.models import Count
 
-categories_tags = {"categories": models.Category.objects.all(), "tags": models.Tag.objects.all()}
+categories_tags = {"categories": models.Category.objects.annotate(num_blogs=Count('blog')), "tags": models.Tag.objects.annotate(num_blogs=Count('blog'))}
 
 
 class ExtraContextMixin(object):

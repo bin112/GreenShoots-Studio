@@ -4,9 +4,9 @@
 {% load django_markdown %}
 
 {% block blogcontent %}
-
+{% if object_list %}
 <div class="content-wrapper">
-
+    
     {% for object in object_list %}
         <article class="article">
             <h3 class="article-title">
@@ -72,6 +72,11 @@
             </li>
         {% endif %}
     </ul>
-    </div>
 
+    </div>
+{% else %}
+<div class="content-wrapper">
+    <p>还没有任何博客</p>
+</div>
+{% endif %}
 {% endblock %}
