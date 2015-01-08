@@ -11,16 +11,16 @@ from . import models
 categories_tags = {"categories": models.Category.objects.all(), "tags": models.Tag.objects.all()}
 
 
-class ExtraContext(object):
+class ExtraContextMixin(object):
     extra_context = {}
 
     def get_context_data(self, **kwargs):
-        context = super(ExtraContext, self).get_context_data(**kwargs)
+        context = super(ExtraContextMixin, self).get_context_data(**kwargs)
         context.update(self.extra_context)
         return context
 
 
-class BlogIndex(ExtraContext, generic.ListView):
+class BlogIndex(ExtraContextMixin, generic.ListView):
     extra_context = categories_tags
     template_name = "blogs.html"
     paginate_by = 5
@@ -36,7 +36,7 @@ class BlogIndex(ExtraContext, generic.ListView):
             return models.Blog.objects.published()
 
 
-class BlogDetail(ExtraContext, generic.DetailView):
+class BlogDetail(ExtraContextMixin, generic.DetailView):
     extra_context = categories_tags
     model = models.Blog
     template_name = "post.html"

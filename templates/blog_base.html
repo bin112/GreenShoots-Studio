@@ -55,7 +55,7 @@
                 {% for object in categories %}
                 <li>
                 <a href="{% url "category_blogs" slug=object.slug %}">
-                    {{ object.name }}({{ object.count }})
+                    {{ object.name }}({{ object.blog_set.count }})
                 </a>
                 </li>
                 {% endfor %}
@@ -67,7 +67,7 @@
                 {% for object in tags %}
                 <li>
                 <a href="{% url "tag_blogs" pk=object.pk %}">
-                    {{ object.name }}({{ object.count }})
+                    {{ object.name }}({{ object.blog_set.count }})
                 </a>
                 </li>
                 {% endfor %}
