@@ -8,7 +8,7 @@ __author__ = 'chengbin.wang'
 from django.db import models
 from core.models import Basemodel
 from user.models import User
-from django.db.models.signals import m2m_changed, pre_save, pre_delete
+from django.db.models.signals import m2m_changed, post_save, post_delete
 from django.core.urlresolvers import reverse
 
 
@@ -25,7 +25,7 @@ class Base(Basemodel):
         self.save()
 
     def decr(self, num=1):
-        self.count += num
+        self.count -= num
         self.save()
 
     class Meta:
@@ -87,16 +87,12 @@ def handle_in_batches(instances, method):
         getattr(item, method)()
 
 
-def blog_pre_save(sender, **kwargs):
-    try:
-        blog = Blog.objects.get(id=kwargs.get('instance').id)
-    except Blog.DoesNotExist:
+def blog_post_save(sender, **kwargs):
+    if kwargs.get('created'):
         kwargs.get('instance').category.incr()
-    else:
-        pass
 
 
-def blog_pre_delete(sender, **kwargs):
+def blog_post_delete(sender, **kwargs):
     ins = kwargs.get('instance')
     ins.category.decr()
     handle_in_batches(ins.tags.all(), 'decr')
@@ -111,6 +107,6 @@ def tags_pre_save(sender, **kwargs):
         handle_in_batches(Tag.objects.filter(id__in=kwargs.get('pk_set')), 'incr')
 
 
-pre_save.connect(blog_pre_save, sender=Blog)
-pre_delete.connect(blog_pre_delete, sender=Blog)
+post_save.connect(blog_post_save, sender=Blog)
+post_delete.connect(blog_post_delete, sender=Blog)
 m2m_changed.connect(tags_pre_save, sender=Blog.tags.through)
