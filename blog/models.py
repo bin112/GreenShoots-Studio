@@ -5,6 +5,8 @@
 #
 __author__ = 'chengbin.wang'
 
+import random
+
 from django.db import models
 from core.models import Basemodel
 from user.models import User
@@ -87,9 +89,20 @@ def handle_in_batches(instances, method):
         getattr(item, method)()
 
 
+def add_slug(instance, mod):
+    tmp_list = [b.slug for b in mod.objects.filter(is_active=True)]
+    while True:
+        rd = random.randint(1, 99999)
+        if rd not in tmp_list:
+            mod.objects.filter(id=instance.id).update(slug=rd)
+            break
+
+
 def blog_post_save(sender, **kwargs):
-    if kwargs.get('created'):
-        kwargs.get('instance').category.incr()
+    if not kwargs.get('created'):
+        bg = kwargs.get('instance')
+        add_slug(bg, Blog)
+        bg.category.incr()
 
 
 def blog_post_delete(sender, **kwargs):
@@ -107,6 +120,17 @@ def tags_pre_save(sender, **kwargs):
         handle_in_batches(Tag.objects.filter(id__in=kwargs.get('pk_set')), 'incr')
 
 
+def tag_post_save(sender, **kwargs):
+    if not kwargs.get('created'):
+        add_slug(kwargs.get('instance'), Tag)
+
+
+def category_post_save(sender, **kwargs):
+    if not kwargs.get('created'):
+        add_slug(kwargs.get('instance'), Category)
+
+post_save.connect(tag_post_save, sender=Tag)
+post_save.connect(category_post_save, sender=Category)
 post_save.connect(blog_post_save, sender=Blog)
 post_delete.connect(blog_post_delete, sender=Blog)
 m2m_changed.connect(tags_pre_save, sender=Blog.tags.through)
