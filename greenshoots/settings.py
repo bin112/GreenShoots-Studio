@@ -43,7 +43,7 @@ INSTALLED_APPS = (
 
     'blog',
     'user',
-    'django_markdown'
+    'markup_deprecated',
 )
 
 MIDDLEWARE_CLASSES = (

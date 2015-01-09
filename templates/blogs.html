@@ -1,7 +1,7 @@
 {% extends "blog_base.html" %}
 {% load staticfiles %}
 {% load filters %}
-{% load django_markdown %}
+{% load markup %}
 
 {% block blogcontent %}
 {% if object_list %}
@@ -19,7 +19,7 @@
                     <span class="avatar-name">{{ object.author.name }}</span>
                 </a>
                 <span class="published">{{ object.create_time }}</span>
-                 |
+                |
                 <a class="category-name" href="{% url "category_blogs" slug=object.category.slug %}">{{ object.category.name }}</a>
                 |
                 <span>{{ object.click_count }}次阅读</span>

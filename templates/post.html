@@ -1,6 +1,6 @@
 {% extends "blog_base.html" %}
 {% load staticfiles %}
-{% load django_markdown %}
+{% load markup %}
 
 {% block blogcontent %}
 
@@ -23,8 +23,7 @@
                     </div>
 
                     <div class="article-summary article-markdown">
-                        <p>{{ object.content|markdown }}</p>
-
+                        <p>{{ object.content|markdown:"codehilite" }}</p>
                     </div>
                 </article>
 
