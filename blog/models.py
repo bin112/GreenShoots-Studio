@@ -99,7 +99,7 @@ def add_slug(instance, mod):
 
 
 def blog_post_save(sender, **kwargs):
-    if not kwargs.get('created'):
+    if kwargs.get('created'):
         bg = kwargs.get('instance')
         add_slug(bg, Blog)
         bg.category.incr()
@@ -121,12 +121,12 @@ def tags_pre_save(sender, **kwargs):
 
 
 def tag_post_save(sender, **kwargs):
-    if not kwargs.get('created'):
+    if kwargs.get('created'):
         add_slug(kwargs.get('instance'), Tag)
 
 
 def category_post_save(sender, **kwargs):
-    if not kwargs.get('created'):
+    if kwargs.get('created'):
         add_slug(kwargs.get('instance'), Category)
 
 post_save.connect(tag_post_save, sender=Tag)
