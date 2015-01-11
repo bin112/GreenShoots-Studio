@@ -11,17 +11,18 @@ from . import models
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ("name", "slug", "count")
+    readonly_fields = ('slug',)
 
 
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ("title", "create_time")
-    readonly_fields=('click_count',)
+    list_display = ("title", "create_time", "slug",)
+    #exclude = ('slug',)
+    readonly_fields = ('click_count', 'slug')
+
 
 class TagAdmin(admin.ModelAdmin):
     list_display = ("name", "slug", "count")
-
-class TagAdmin(admin.ModelAdmin):
-    list_display = ("name", "slug", "count")
+    readonly_fields = ('slug',)
 
 admin.site.register(models.Blog, BlogAdmin)
 admin.site.register(models.Category, CategoryAdmin)
