@@ -28,7 +28,7 @@ TEMPLATE_DIRS = (
     BASE_DIR + '/templates/',
 )
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*', ]
 
 
 # Application definition
@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'blog',
     'user',
     'markup_deprecated',
+    'work',
 )
 
 MIDDLEWARE_CLASSES = (
