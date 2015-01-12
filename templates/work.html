@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block header %}
+<li>
+    <a href="{% url 'index' %}">首页</a>
+</li>
+<li class="active">
+    <a href="{% url 'work' %}">作品展示</a>
+</li>
+<li>
+    <a href="{% url 'services' %}">服务</a>
+</li>
+<li >
+    <a href="{% url 'blog' %}">博客</a>
+</li>
+<li>
+    <a href="{% url 'team' %}">关于我们</a>
+</li>
+<li>
+    <a href="{% url 'contact' %}">联系我们</a>
+</li>
+{% endblock %}
+
+{% block content %}
+    <div id="sub-header" style="background: url({% static "images/product_top.jpg" %}) -25px no-repeat transparent;">
+        <div class="container">
+            <h1 class="product-title">What We've Done</h1>
+            <p class="product-quote">Here's some of the stuff we're proud of</p>
+        </div>
+    </div>
+
+<div id="main-content">
+    <div class="container">
+        <h1 class="product-portfolio">Our Portfolio</h1>
+
+        <div class="landing-wrapper row">
+            <div class="block portfolioitempage col-sm-6 col-md-4 col-lg-3">
+                <a href="http://blendinteractive.com/work/vcu-office-of-the-provost/">
+                    <img src="./Our Portfolio   Blend Interactive - Web Strategy, Design and Development_files/vcu_thumb.jpg" alt="vcu_thumb.jpg">
+                    <h3>VCU <span class="glyphicon glyphicon-chevron-right pull-right"></span></h3>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
