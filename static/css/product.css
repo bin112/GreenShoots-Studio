@@ -18,3 +18,19 @@ h1.product-portfolio{
     line-height: 1.1;
     color: rgb(96, 97, 89);
 }
+
+.product-container{
+    margin: 400px, 100px, 100px, 100px;
+}
+.product-row{
+    box-sizing: border-box;
+    color: rgb(96, 97, 89);
+    display: block;
+    font-family: PTSansRegular;
+    font-size: 14px;
+    height: 1385px;
+    line-height: 20px;
+    margin-left: -15px;
+    margin-right: -15px;
+    width: 1170px;
+}

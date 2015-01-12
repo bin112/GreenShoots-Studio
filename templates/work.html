@@ -31,20 +31,16 @@
     </div>
 
 <div id="main-content">
-    <div class="container">
+    <div class="product-container">
         <h1 class="product-portfolio">Our Portfolio</h1>
-        <div class="landing-wrapper row">
-            <div class="block portfolioitempage col-sm-6 col-md-4 col-lg-3">
-                 {% for product in product_list %}
-                      {{ product.description }}
-                      <br>
-                      <h3>{{ product.name }} <span class="glyphicon glyphicon-chevron-right pull-right"></span></h3>
-                 {% endfor %}
-
-                </a>
-            </div>
+        <div class="product-row">
+            {% for product in product_list %}
+                <div class="product_content" style="float:left;display: inline-block;">
+                    <img src={{ product.picture.image.url }} width="250" height="180" >
+                    <h4>{{ product.name }}</h4>
+                </div>
+            {% endfor %}
         </div>
-
     </div>
 </div>
 
