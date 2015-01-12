@@ -12,9 +12,10 @@ from work.models import Product
 # Create your views here.
 
 
-class ProductList(ListView):
+class ProductList(ExtraContextMixin, ListView):
     template_name = 'work.html'
     model = Product
+    
 
 
 

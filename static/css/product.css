@@ -1,0 +1,20 @@
+h1.product-title{
+    font-size: 80px;
+    line-height: 80px;
+    font-family: "黑体";
+    color: #fff;
+    font-weight: 700;
+}
+p.product-quote{
+    background: #369fa4;
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+h1.product-portfolio{
+    font-family: "黑体";
+    font-weight: 600;
+    line-height: 1.1;
+    color: rgb(96, 97, 89);
+}
