@@ -23,7 +23,25 @@
 {% endblock %}
 
 {% block content %}
+    <div id="sub-header" style="background: url({% static "images/product_top.jpg" %}) -25px no-repeat transparent;">
+        <div class="container">
+            <h1 class="product-title">What We've Done</h1>
+            <p class="product-quote">Here's some of the stuff we're proud of</p>
+        </div>
+    </div>
 
-<h1>作品</h1>
+<div id="main-content">
+    <div class="product-container">
+        <h1 class="product-portfolio">Our Portfolio</h1>
+        <div class="product-row">
+            {% for product in product_list %}
+                <div class="product_content" style="float:left;display: inline-block;">
+                    <img src={{ product.picture.image.url }} width="250" height="180" >
+                    <h4>{{ product.name }}</h4>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}

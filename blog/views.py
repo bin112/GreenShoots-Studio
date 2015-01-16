@@ -9,17 +9,9 @@ from django.views import generic
 from . import models
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
+from core.views import ExtraContextMixin
 
 categories_tags = {"categories": models.Category.objects.annotate(num_blogs=Count('blog')), "tags": models.Tag.objects.annotate(num_blogs=Count('blog'))}
-
-
-class ExtraContextMixin(object):
-    extra_context = {}
-
-    def get_context_data(self, **kwargs):
-        context = super(ExtraContextMixin, self).get_context_data(**kwargs)
-        context.update(self.extra_context)
-        return context
 
 
 class BlogList(ExtraContextMixin, generic.ListView):

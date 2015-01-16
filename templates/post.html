@@ -7,7 +7,7 @@
             <div class="content-wrapper">
                 <article class="article">
                     <h3 class="article-title">
-                        <a href="./post_files/post.html">{{ object.title }}</a>
+                        <a href="{% url "blog_detail" slug=object.slug %}">{{ object.title }}</a>
                     </h3>
 
                     <div class="article-meta">
