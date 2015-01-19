@@ -24,7 +24,7 @@ class Product(Basemodel):
     name = models.CharField(max_length=25, verbose_name=u'产品名称')
     picture = models.ForeignKey(ProductImage, verbose_name=u'产品图片', blank=True, null=True)
     product_url = models.URLField(verbose_name=u'产品链接', blank=True, null=True)
-    description = models.TextField(verbose_name=u'产品描述')
+    description = models.TextField(verbose_name=u'产品描述', blank=True, null=True)
 
     def __unicode__(self):
         return self.name

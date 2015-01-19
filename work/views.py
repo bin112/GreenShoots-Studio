@@ -15,6 +15,7 @@ from work.models import Product
 class ProductList(ExtraContextMixin, ListView):
     template_name = 'work.html'
     model = Product
+    paginate_by = 12
     
 
 

@@ -23,23 +23,60 @@
 {% endblock %}
 
 {% block content %}
-    <div id="sub-header" style="background: url({% static "images/product_top.jpg" %}) -25px no-repeat transparent;">
-        <div class="container">
+<div id="sub-header" style="background: url({% static "images/product_top.jpg" %}) -25px no-repeat transparent;">
+    <div class="container">
             <h1 class="product-title">What We've Done</h1>
             <p class="product-quote">Here's some of the stuff we're proud of</p>
-        </div>
     </div>
+</div>
 
 <div id="main-content">
+    <div class="product-portfolio"><span>Our Portfolio</span></div>
     <div class="product-container">
-        <h1 class="product-portfolio">Our Portfolio</h1>
-        <div class="product-row">
+        <ul class="product-content">
             {% for product in product_list %}
-                <div class="product_content" style="float:left;display: inline-block;">
-                    <img src={{ product.picture.image.url }} width="250" height="180" >
+                <li>
+                    <a href="http://baidu.com" target="_blank">
+                    <img src={{ product.picture.image.url }}>
                     <h4>{{ product.name }}</h4>
-                </div>
+                    </a>
+                </li>
             {% endfor %}
+        </ul>
+        <div class="product-page">
+        <ul class = 'pagination'>
+        {% if page_obj.has_previous %}
+            <li >
+                <a href="{% url "work" %}?page={{ page_obj.previous_page_number }}" class="paginator-previous">上一页</a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="javascript:;" class="paginator-previous">上一页</a>
+            </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if num == page_obj.number %}
+                <li class="active">
+                    <a href="javascript:;">{{ num }}</a>
+                </li>
+            {% else %}
+                <li class="paginator-page">
+                    <a href="{% url "work" %}?page={{ num }}">{{ num }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <li>
+                <a href="{% url "work" %}?page={{ page_obj.next_page_number }}" class="paginator-next">下一页</a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="javascript:;" class="paginator-next">下一页</a>
+            </li>
+        {% endif %}
+        </ul>
         </div>
     </div>
 </div>
