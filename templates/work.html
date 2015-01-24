@@ -36,7 +36,7 @@
         <ul class="product-content">
             {% for product in product_list %}
                 <li>
-                    <a href="http://baidu.com" target="_blank">
+                    <a href={% url 'work_detail' pk=product.pk %} target="_blank">
                     <img src={{ product.picture.image.url }}>
                     <h4>{{ product.name }}</h4>
                     </a>

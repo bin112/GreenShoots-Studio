@@ -63,3 +63,15 @@
     height: 60px;
     width: 1000px;
 }
+
+.product-detail{
+    height: auto;
+    width: 1300px;
+    margin-left: 25px;
+}
+
+.product-detail-content{
+    width: 1000px;
+    height: auto;
+    margin-left: 150px;
+}

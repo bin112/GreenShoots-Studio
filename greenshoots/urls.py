@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^team/$', TemplateView.as_view(template_name='team.html'), name='team'),
     url(r'^contact/$', TemplateView.as_view(template_name='contact.html'), name='contact'),
     url(r'^services/$', TemplateView.as_view(template_name='services.html'), name='services'),
+    url(r'^ueditor/', include('DjangoUeditor.urls' )),
 )
 
 if settings.DEBUG:

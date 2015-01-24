@@ -8,8 +8,9 @@ __author__ = 'chengbin.wang'
 
 
 from django.conf.urls import patterns, url
-from .views import ProductList
+from .views import ProductList, ProductDetail
 
 urlpatterns = patterns('',
     url(r'^$', ProductList.as_view(), name="work"),
+    url(r'^detail/(?P<pk>\S+)/$', ProductDetail.as_view(), name="work_detail"),
 )
