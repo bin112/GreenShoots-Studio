@@ -23,7 +23,13 @@
 {% endblock %}
 
 {% block content %}
-
-<h1>联系我们</h1>
-
+<div class="contact-body">
+    <div class="contact-form">
+        <form action="{% url 'contact' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_ul }}
+            <input type="submit" value="提交">{{ error }}
+        </form>
+    </div>
+</div>
 {% endblock %}

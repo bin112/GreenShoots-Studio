@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'markup_deprecated',
     'work',
     'DjangoUeditor',
+    'contact',
 )
 
 MIDDLEWARE_CLASSES = (
